@@ -112,7 +112,13 @@ if !exists(":DiffOrig")
 endif
 
 "skyworth +"
+"setting {{
 set nu
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set nobackup
+
 
 ""for taglist"
 let Tlist_Show_One_File=1
@@ -122,12 +128,31 @@ let Tlist_Exit_OnlyWindow=1
 if has("cscope")
   set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
+" }}
 
-"NERDTree"
-execute pathogen#infect()
-autocmd vimenter * if !argc() | NERDTree | endif
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"
 
+
+" Plugin {
+Bundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_leader_key = 'f'
+"let g:EasyMotion_leader_key = 'f'
+
+nmap s <Plug>(easymotion-s)
+
+" Turn on case sensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+Bundle 'terryma/vim-multiple-cursors'
+
+
+Bundle 'Valloric/YouCompleteMe'
+
+Bundle 'kien/ctrlp.vim'
 "ctrlp"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
@@ -141,31 +166,16 @@ let g:ctrlp_custom_ignore = {
 	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 	\ }
 
-"neocomplete"
-let g:neocomplete#enable_at_startup = 1
 
+Bundle 'scrooloose/nerdtree'
+"NERDTree"
+execute pathogen#infect()
+autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"
 
-" Plugin {
-Bundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_leader_key = 'f'
-
-" Turn on case sensitive feature
- let g:EasyMotion_smartcase = 1
+map <F8> <ESC>:NERDTree %<CR>
+nnoremap <F10> :exe 'NERDTreeToggle'<CR> 
 " }
 
-"easymotion"
-" Bi-directional find motion
-" " Jump to anywhere you want with minimal keystrokes, with just one key
-" binding.
- " `s{char}{label}`
-" nmap s <Plug>(easymotion-s)
-" " or
-" " `s{char}{char}{label}`
-" " Need one more keystroke, but on average, it may be more comfortable.
-"nmap s <Plug>(easymotion-s2)
-"
-" " JK motions: Line motions
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
-" let g:EasyMotion_leader_key = 'f'
+
+
