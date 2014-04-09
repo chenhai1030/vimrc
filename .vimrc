@@ -120,11 +120,14 @@ set softtabstop=4
 set nobackup
 
 
-""for taglist"
+"""""""""""'''''for taglist""""""
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
+" Automatically update the taglist to include newly edited files
+let Tlist_Auto_Update=1
 
-"cscope"
+
+"""""""""""""cscope"'"'"'"'"'"'"'"'"'"'"'"'"
 if has("cscope")
   set cscopequickfix=s-,c-,d-,i-,t-,e-
 endif
@@ -171,6 +174,7 @@ Bundle 'scrooloose/nerdtree'
 "NERDTree"
 execute pathogen#infect()
 autocmd vimenter * if !argc() | NERDTree | endif
+let NERDTreeWinPos='right'
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"
 
 map <F8> <ESC>:NERDTree %<CR>
