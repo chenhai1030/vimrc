@@ -1,18 +1,8 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
+" Maintainer:   Chen Hai <chenhai@skyworth.com>
+" Last change:	2014 Apr 11
 "
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -41,17 +31,13 @@ if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file
-endif
-set history=50		" keep 50 lines of command line history
+endif 
+set history=100		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -59,7 +45,7 @@ inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+  set mouse=v
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -111,9 +97,8 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-"skyworth +"
 "setting {{
-set nu
+"set nu
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -182,6 +167,17 @@ endif
 
 " Plugin {
 Bundle 'Lokaltog/vim-easymotion'
+
+Bundle 'terryma/vim-multiple-cursors'
+
+
+Bundle 'Valloric/YouCompleteMe'
+
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+
+
+"easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_leader_key = 'f'
 "let g:EasyMotion_leader_key = 'f'
@@ -195,12 +191,7 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-Bundle 'terryma/vim-multiple-cursors'
 
-
-Bundle 'Valloric/YouCompleteMe'
-
-Bundle 'kien/ctrlp.vim'
 "ctrlp"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
@@ -214,9 +205,7 @@ let g:ctrlp_custom_ignore = {
 	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 	\ }
 
-
-Bundle 'scrooloose/nerdtree'
-"NERDTree"
+"NEADTREE
 execute pathogen#infect()
 autocmd vimenter * if !argc() | NERDTree | endif
 let NERDTreeWinPos='right'
