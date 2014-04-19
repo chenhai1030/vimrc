@@ -167,14 +167,15 @@ endif
 
 " Plugin {
 Bundle 'Lokaltog/vim-easymotion'
-
+"Bundle 'vim-scripts/taglist.vim'
+Bundle 'majutsushi/tagbar'
 Bundle 'terryma/vim-multiple-cursors'
-
-
 Bundle 'Valloric/YouCompleteMe'
-
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-surround'
 
 
 "easymotion
@@ -209,10 +210,23 @@ let g:ctrlp_custom_ignore = {
 execute pathogen#infect()
 autocmd vimenter * if !argc() | NERDTree | endif
 let NERDTreeWinPos='right'
+let NERDTreeDirArrows = 0
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif"
 
 map <F8> <ESC>:NERDTree %<CR>
 nnoremap <F10> :exe 'NERDTreeToggle'<CR> 
+
+" syntastic settings
+let g:syntastic_check_on_open = 1
+"set error or warning signs
+let g:syntastic_error_symbol = 'E'
+let g:syntastic_warning_symbol = 'W'
+
+
+"TagBar
+nmap <F8> :TagbarToggle<CR>
+let tagbar_left=1
+
 " }
 
 
