@@ -108,11 +108,11 @@ set foldmethod=syntax
 "Marker Fold
 "set foldmethod=marker
 
-"""""""""""'''''for taglist""""""
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-" Automatically update the taglist to include newly edited files
-let Tlist_Auto_Update=1
+""""""""""""'''''for taglist""""""
+"let Tlist_Show_One_File=1
+"let Tlist_Exit_OnlyWindow=1
+"" Automatically update the taglist to include newly edited files
+"let Tlist_Auto_Update=1
 
 
 """""""""""""cscope"'"'"'"'"'"'"'"'"'"'"'"'"
