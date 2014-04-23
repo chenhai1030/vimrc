@@ -178,6 +178,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-surround'
 
+Bundle 'xolox/vim-easytags'
+Bundle 'xolox/vim-misc'
 
 "easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -227,6 +229,10 @@ let g:syntastic_warning_symbol = 'W'
 "TagBar
 nmap <F8> :TagbarToggle<CR>
 let tagbar_left=1
+
+
+"vim-easytags
+let g:easytags_dynamic_files = 1
 
 " }
 
