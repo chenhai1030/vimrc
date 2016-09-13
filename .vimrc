@@ -177,6 +177,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive.git'
+
 
 Bundle 'xolox/vim-easytags'
 Bundle 'xolox/vim-misc'
